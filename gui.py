@@ -42,7 +42,6 @@ class App(QWidget):
         self.html_list = web_scraping.get_list(self.webpage)
         self.table = QTableWidget(self)
         self.table_row = len(self.html_list)
-        print(self.table_row)
         self.table.setRowCount(self.table_row)
         self.table.setColumnCount(1)
         i=0
