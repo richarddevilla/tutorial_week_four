@@ -1,8 +1,13 @@
-import sys
-import web_scraping
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton,QTableWidget,QTableWidgetItem
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import QUrl
+import os.path
+import sys
+import web_scraping
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+HTML_PATH = os.path.join(BASE_DIR, "my_html.html")
+HTML_URL = 'file:///' + HTML_PATH.replace('\\','/')
 
 
 class App(QWidget):
@@ -33,7 +38,7 @@ class App(QWidget):
     def show_webpage(self):
         self.webpage = web_scraping.get_html()
         self.web = QWebEngineView(self)
-        self.web.load(QUrl('file:///C:/Users/Chase/PycharmProjects/tutorial_week_four/my_html.html'))
+        self.web.load(QUrl(HTML_URL))
         self.web.move(40, 40)
         self.web.show()
 

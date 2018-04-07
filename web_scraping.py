@@ -16,6 +16,7 @@ timeout_error = """
 <p>{}</p>
 """
 
+
 def get_html():
     session = requests.Session()
     url = 'http://192.168.1.4/bWAPP/training.php'
@@ -33,6 +34,7 @@ def get_html():
             temp = w.write(write_html)
         return write_html
 
+
 def get_list(content):
     parsed_content = BeautifulSoup(content, 'html.parser')
     content_list = parsed_content('li')
@@ -41,7 +43,10 @@ def get_list(content):
         temp.append(each.get_text())
     return temp
 
+
 if __name__ == '__main__':
     content = get_html()
     content_list = get_list(content)
-    print(content_list)
+
+
+
